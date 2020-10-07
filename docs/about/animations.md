@@ -1,29 +1,29 @@
-# Carefully designed animations
+# 세심한 애니메이션 (Carefully designed animations)
 
-With things moving a lot it would be easy for the user to become distracted by the animations or for them to get in the way. We have tweaked the various animations to ensure the right balance of guidance, performance and interactivity.
+화면에서 여러가지가 움직이면 산만해지기 쉽상입니다. 따라서 우리는 유도와 작동성, 그리고 상호성의 균형을 맞출 수 있도록 애니메이션을 수정했습니다.
 
-## Dropping
+## 드로핑 (Dropping)
 
-We have designed a drop animation that feels weighted and physical. It is based on a [`spring`](https://developer.android.com/guide/topics/graphics/spring-animation) and uses a CSS animation with a dynamic duration to achieve the effect.
+드롭(drop) 애니메이션은 역동성과 무게감을 느낄 수 있게끔 설계되었습니다. 이는 [`spring`](https://developer.android.com/guide/topics/graphics/spring-animation)을 기반으로 하며, CSS 애니메이션의 유연한 지속시간을 통해 효과를 구현했습니다.
 
-![result-curve](https://user-images.githubusercontent.com/2182637/48235467-1ce34200-e412-11e8-8c69-2060a0c2f61a.png)
+![결과 커브(result-curve)](https://user-images.githubusercontent.com/2182637/48235467-1ce34200-e412-11e8-8c69-2060a0c2f61a.png)
 
-> Animation curve used when dropping. Duration is dynamic based on distance to travel
+> 애니메이션 커브(animation curve)는 드로핑(dropping) 할 때 사용합니다. 지속시간은 이동 거리에 따라 달라집니다.
 
-You can tweak the drop animation if you would like to. We have created a guide: [drop animation](/docs/guides/drop-animation.md)
+원할 경우 드롭(drop) 애니메이션을 수정할 수 있습니다. 안내 문서를 확인해주세요: [드롭(drop) 애니메이션](/docs/guides/drop-animation.md)
 
-## Moving out of the way
+## 범위를 벗어난 아이템 (Moving out of the way)
 
-Items that are moving out of the way of a dragging item do so with a CSS transition rather than physics. This is to maximise performance by allowing the GPU to handle the movement. The CSS animation curve has been designed to communicate getting out of the way.
+드래깅(dragging) 아이템의 범위를 벗어난 아이템은 물리 대신 CSS 트랜지션(transition)으로 구현하였습니다. 이는 GPU로 움직임을 제어하여 작동성을 극대화시키기 위함입니다. CSS 애니메이션 커브(animation curve)는 범위를 벗어난 것을 알리는 용도로 사용되었습니다.
 
-How it is composed:
+구성 방법:
 
-1.  A warm up period to mimic a natural response time
-2.  A small phase to quickly move out of the way
-3.  A long tail so that people can read any text that is being animated in the second half of the animation
+1.  자연 반응 시간을 따라하기 위한 준비(warm up) 시간
+2.  범위를 빠르게 벗어나도록 하기 위한 단계
+3.  글씨가 움직이고 있는 동안에도 글씨를 읽을 수 있도록 하기 위한 긴 꼬리
 
-![animation curve](https://raw.githubusercontent.com/alexreardon/files/master/resources/dnd-ease-in-out-small.png?raw=true)
+![애니메이션 커브(animation curve)](https://raw.githubusercontent.com/alexreardon/files/master/resources/dnd-ease-in-out-small.png?raw=true)
 
-> Animation curve used when moving out of the way
+> 애니메이션 커브(animation curve)는 범위를 벗어날 때 사용합니다.
 
-[← Back to documentation](/README.md#documentation-)
+[← 이전 화면으로 돌아가기](/README.md#documentation-)
