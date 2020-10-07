@@ -31,7 +31,7 @@
 
 ### 기본 지식 (General knowledge)
 
-- [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS): JavaScript를 깊이있게 이해하는 데에 도움이 되는 훌륭한 자료입니다.
+- [당신은 JS를 모른다](https://github.com/getify/You-Dont-Know-JS): JavaScript를 깊이있게 이해하는 데에 도움이 되는 훌륭한 자료입니다.
 
 ### 기술
 
