@@ -2,9 +2,9 @@
 
 [![module formats: umd, cjs, and esm](https://img.shields.io/badge/module%20formats-umd%2c%20cjs%2c%20esm-green.svg?style=flat)](https://unpkg.com/react-beautiful-dnd/dist/)
 
-## 일반 (General)
+## 일반 설치 (General)
 
-1. `react-beautiful-dnd` 패키지 더하기
+1. `react-beautiful-dnd` 패키지 추가하기
 
 ```bash
 # yarn
