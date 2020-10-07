@@ -1,6 +1,6 @@
-[원문](https://github.com/atlassian/react-beautiful-dnd)
+원문: [atlassian/react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
 
-번역 일자: 2020년 10월 7일 ()
+번역 일자: 2020년 10월 7일 (수)
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/2182637/53611918-54c1ff80-3c24-11e9-9917-66ac3cef513d.png" alt="react beautiful dnd logo" />
@@ -28,7 +28,7 @@
 - API가 깔끔하고 뛰어나 시작하기에 편함
 - 기본적인 브라우저 상호작용의 작동이 뛰어남
 - [독창적인 스타일](/docs/guides/preset-styles.md)
-- 추가로 DOM을 생성할 필요가 없음 - 플렉스박스(flexbox)와 focus management에 친화적입니다!
+- 추가로 DOM을 생성할 필요가 없음 - 플렉스박스(flexbox)와 포커스 매니지먼트(focus management)에 친화적입니다!
 
 ## 시작하기 (Get started) 👩‍🏫
 
