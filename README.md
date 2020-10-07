@@ -1,5 +1,6 @@
 [원문](https://github.com/atlassian/react-beautiful-dnd)
-번역 일자: 2020년 9월 18일 (금)
+
+번역 일자: 2020년 10월 7일 ()
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/2182637/53611918-54c1ff80-3c24-11e9-9917-66ac3cef513d.png" alt="react beautiful dnd logo" />
