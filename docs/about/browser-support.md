@@ -1,19 +1,19 @@
-# Browser support 🌍
+# 브라우저 지원 (Browser support) 🌍
 
-This library supports the standard [Atlassian supported browsers](https://confluence.atlassian.com/cloud/supported-browsers-744721663.html) for desktop:
+이 라이브러리는 데스크톱(desktop)에서 [Atlassian이 지원하는 브라우저](https://confluence.atlassian.com/cloud/supported-browsers-744721663.html)를 지원합니다:
 
-| Desktop                              | Version                                              |
+| 데스크톱                               | 버전                                                  |
 | ------------------------------------ | ---------------------------------------------------- |
-| Microsoft Internet Explorer(Windows) | Version 11                                           |
-| Microsoft Edge                       | Latest stable version supported                      |
-| Mozilla Firefox (all platforms)      | Latest stable version supported                      |
-| Google Chrome (Windows and Mac)      | Latest stable version supported                      |
-| Safari (Mac)                         | Latest stable version on latest OS release supported |
+| 마이크로소프트 인터넷 익스플로러 (윈도우)      | 버전 11                                               |
+| 마이크로소프트 엣지                       | 최신 안정 버전 지원                                       |
+| 모질라 파이어폭스 (모든 플랫폼)             | 최신 안정 버전 지원                                       |
+| 구글 크롬 (윈도우, 맥)                   | 최신 안정 버전 지원                                       |
+| 사파리 (맥)                            | 최신 OS 릴리스(release)의 최신 안정 버전 지원                |
 
-| Mobile                   | Version                                                   |
+| 모바일                     | 버전                                                       |
 | ------------------------ | --------------------------------------------------------- |
-| Chrome (Android and iOS) | Latest stable version supported                           |
-| Mobile Safari (iOS)      | Latest stable version supported                           |
-| Android (Android)        | The default browser on Android 4.0.3 (Ice Cream Sandwich) |
+| 크롬 (안드로이드, iOS)       | 최신 안정 버전 지원                                            |
+| 모바일 사파리 (iOS)          | 최신 안정 버전 지원                                           |
+| 안드로이드 (안드로이드)        | 안드로이드 4.0.3 (아이스크림 샌드위치) 기본 브라우저                 |
 
-[← Back to documentation](/README.md#documentation-)
+[← 이전 화면으로 돌아가기](/README.md#documentation-)
