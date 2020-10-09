@@ -1,56 +1,56 @@
-# Design principles 📖
+# 디자인 원칙 📖 (Design principles 📖)
 
-This page goes over the design and interaction thinking behind `react-beautiful-dnd`.
+이 페이지에서는 `react-beautiful-dnd`의 디자인과 상호작용에 대한 구상을 설명합니다.
 
-## Foundational idea: physicality
+## 디자인의 기초: 물질성 (Foundational idea: physicality)
 
-The core design idea of `react-beautiful-dnd` is physicality: we want users to feel like they are moving physical objects around
+`react-beautiful-dnd` 디자인의 핵심은 물질성(physicality)에 있습니다: 우리는 사용자에게 물체를 움직이는 느낌을 제공하고자 합니다.
 
-### Application 1: no instant movement (no snapping)
+### 고려사항 1: 즉각적인 움직임 없애기 (Application 1: no instant movement (no snapping))
 
-It is a fairly standard drag and drop pattern for things to disappear and reappear in response to the users drag. For a more natural drag we animate the movement of items as they need to move out of the way while dragging to more clearly show a drags effect. We also animate the drop of an item so that it animates into its new home position. At no point is an item instantly moved anywhere — regardless of whether it is dragging or not.
+드래그 앤 드롭에서 드래그(drag)에 따라 아이템이 사라지고 나타나는 건 기본적인 패턴입니다. 하지만 우리는 아이템을 숨기는 대신 밖으로 밀어내는 애니메이션을 적용해 보다 자연스러운 드래그 효과를 구현해냈습니다. 아이템을 정위치(home position)에 배치하는 애니메이션 또한 적용되었습니다. 단 한 개의 아이템도 애니메이션 없이 움직이지 않습니다 - 드래깅(dragging) 중이 아닌 아이템까지도요.
 
-### Application 2: knowing when to move
+### 고려사항 2: 아이템이 움직이는 타이밍 (Application 2: knowing when to move)
 
-It is quite common for drag and drop interactions to be based on the position that user started the drag from.
+드래그 앤 드롭이 드래그(drag) 시작점을 기본으로 하는 건 흔한 일입니다.
 
-In `react-beautiful-dnd` a dragging items impact is based on its centre of gravity — regardless of where a user grabs an item from. A dragging items impact follows similar rules to a set of scales ⚖️. Here are some rules that are followed to allow for a natural drag experience even with items of flexible height:
+그러나 `react-beautiful-dnd`는 드래그 시작점 대신 중력의 중심을 이용합니다. 드래깅(dragging)은 규모에 대한 법칙과 비슷한 법칙에 영향을 받습니다 ⚖️. 아래에 나열된 리스트는 높이에 상관 없이 자연스러운 드래그 경험을 주기 위한 규칙들입니다:
 
-- A list is _dragged over_ when the centre position of a dragging item goes over one of the boundaries of the list
-- A resting drag item will move out of the way of a dragging item when the centre position of the dragging item goes over the edge of the resting item. Put another way: once the centre position of an item (A) goes over the edge of another item (B), B moves out of the way.
+- 드래깅 아이템의 중심이 리스트의 경계선을 넘어갈 경우 리스트가 _끌어올려지거나 끌어내려갑니다_.
+- 드래깅 아이템의 중심이 다른 아이템의 모서리에 닿을 경우 아이템이 자리에서 밀려납니다. 다시 말하자면: 아이템 A의 중심이 아이템 B의 모서리에 닿으면 B는 자리에서 밀려납니다.
 
-### Application 3: movement to communicate positioning
+### 고려사항 3: 위치를 알리는 이동 (Application 3: movement to communicate positioning)
 
-> No support for drop shadows or line markings
-> _Drop shadow: putting a clone or 'shadow' of the dragging item in the drop location_
+> 드롭 섀도우(drop shadow)나 라인 마킹(line markings)은 지원하지 않습니다.
+> _드롭 섀도우: 드래깅(dragging) 아이템을 드롭할 위치에 놓여지는 아이템의 복제품이나 '그림자'_
 
-`react-beautiful-dnd` relies on movement to communicate positioning. It is trying to create a system that is based on physical metaphores. Drop shadows, lines and other affordances are useful in drag and drop contexts where natural movement is not possible.
+`react-beautiful-dnd`은 이동하면서 아이템의 위치를 알립니다. 이는 피지컬 매타포(physical metaphores)에 기반한 시스템을 만들기 위함입니다. 드롭 섀도우와 선 같은 유도성 이미지는 드래그 앤 드롭 내 자연스러운 움직임이 불가할 때 유용합니다.
 
-Drop shadows pose a number of confusing design moments if combined with a natural movement system, including:
+드롭 섀도우는 자연스럽게 움직이는 시스템과 결합될 때 디자인적 혼란을 제기합니다:
 
-- Where is the shadow when you are not over a list?
-- How should it move between items?
-- How should it appear as you enter a new list?
+- 아이템을 리스트 위로 드래그 하지 않을 경우, 그림자는 어디에 생겨야 하는가?
+- 아이템 사이에서는 어디로 움직여야 하는가?
+- 새로운 리스트에 드래그 될 경우에는 어디에 나타나야 하는가?
 
-The answer to these is often: snapping (where something just appears in the right spot). We are trying hard to avoid any snapping as it breaks the physicality we are trying to model.
+간혹 스내핑(snapping; 필요한 위치에 갑자기 생겨나는 것)이 해결책일 때도 있습니다. 하지만 우리는 스내핑과 같이 물질성을 파괴하는 요소를 최소화하고자 노력하고 있습니다.
 
-### Application 4: maximise interactivity
+### 고려사항 4: 상호성 극대화하기 (Application 4: maximise interactivity)
 
-`react-beautiful-dnd` works really hard to avoid as many periods of non-interactivity as possible. The user should feel like they are in control of the interface and not waiting for an animation to finish before they can continue to interact with the interface. However, there is a balance that needs to be made between correctness and power in order to make everybody's lives more sane. Here are the only situations where some things are not interactive:
+`react-beautiful-dnd`에서는 상호성이 없는 순간을 최소화하기 위해 최선을 다하고 있습니다. 사용자가 애니메이션이 끝나기까지 마냥 기다리기만 하는 것이 아니라 인터페이스를 이용할 권한이 스스로에게 있다고 생각할 수 있도록 해야합니다. 그러나, 진정으로 이 라이브러리를 즐기기 위해서는 정확성과 힘의 균형을 필요로 합니다. 따라서 아래와 같은 상황에서는 상호 작용이 이루어지지 않습니다:
 
-1.  From when a user cancels a drag to when the drop animation completes. On cancel there are lots of things moving back to where they should be. If you grab an item in a location that is not its true home then the following drag will be incorrect.
-2.  Starting a drag on an item that is animating its own drop. For simplicity this is the case - it is actually quite hard to grab something while it is animating home. It could be coded around - but it seems like an edge case that would add a lot of complexity.
+1.  드래그(drag)를 취소한 시점부터 드롭 애니메이션(drop animation)이 완료되는 시점까지는 상호 작용이 이루어지지 않습니다. 중단과 함께 정위치(home position)로 돌아가야 하는 요소가 많기 때문입니다. 만약 정위치가 아닌 곳에서 아이템을 집어든다면 드래그가 부정확해질 것입니다.
+2.  드롭(drop)되고 있는 아이템을 드래그 할 때는 상호 작용이 이루어지지 않습니다. 아이템이 정위치로 돌아가는 도중에 붙잡아내는 것은 구현이 어렵습니다. 코딩이 불가능하진 않으나, 이는 라이브러리의 전체적인 능력에 비해 매우 복잡한 작업이 될 것입니다.
 
-Keep in mind that these periods of inactivity may not always exist.
+이러한 정지 상태는 그리 길지 않을 것임을 약속합니다.
 
-### Application 5: no drag axis locking
+### 고려사항 5: 드래그(drag) 축 고정하기 (Application 5: no drag axis locking)
 
-For now, the library does not support drag axis locking (aka drag rails). This is where the user is restricted to only dragging along one axis. The current thinking is this breaks the physical metaphor we are going for and sends a message to the user that they are interacting with a piece of software rather than moving physical objects around. It is possible to ensure that a user can only drop in a single list by using props `type` and `isDropDisabled`. You can also do some visual treatment to the list `onDragStart` to show the user that this is the only place they can interact with.
+이 라이브러리는 현재 드래그 축 고정 기능(drag rails)을 지원하지 않습니다. 이 고정 기능은 사용자가 일직선 방향으로만 드래깅(dragging)이 가능하도록 제한하는 기능입니다. 현재로서는 이 기능이 피지컬 매타포(physical metaphore)를 파괴하며, 사용자가 물체를 이동하는 대신 소프트웨어를 사용하는 것처럼 느낄 수 있다고 생각됩니다. 현재 이러한 기능을 대신하여 `type`과 `isDropDisabled`를 사용하여 드롭(drop)할 수 있는 리스트를 제한하는 방안이 있으며, `onDragStart` 리스트로 상호작용을 원하는 위치만 보여주는 시각적인 대안도 있습니다.
 
-### Application 6: natural cross list movement
+### 고려사항 6: 자연스러운 리스트간의 이동 (Application 6: natural cross list movement)
 
-Rather than using an index based approach for keyboard movement between lists, `react-beautiful-dnd` performs cross list movement based on **inertia, gravity and collisions**. You can find out more about how this works by reading the blog ["Natural keyboard movement between lists"](https://medium.com/@alexandereardon/friction-gravity-and-collisions-3adac3a94e19).
+`react-beautiful-dnd`는 키보드를 이용한 리스트간의 이동을 구현하기 위해 순서에 기반한 접근법 대신 **관성, 중력, 그리고 충돌**을 이용합니다. 보다 자세한 설명은 ["자연스러운 리스트간의 이동"](https://medium.com/@alexandereardon/friction-gravity-and-collisions-3adac3a94e19)를 참고해주세요.
 
-![example](https://raw.githubusercontent.com/alexreardon/files/master/resources/collision.gif?raw=true)
+![예시](https://raw.githubusercontent.com/alexreardon/files/master/resources/collision.gif?raw=true)
 
-[← Back to documentation](/README.md#documentation-)
+[← 이전 화면으로 돌아가기](/README.md#documentation-)
