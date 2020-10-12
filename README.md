@@ -2,6 +2,10 @@
 
 번역 일자: 2020년 10월 7일 (수)
 
+번역자: [lee00286](https://github.com/lee00286)
+
+---
+
 <p align="center">
   <img src="https://user-images.githubusercontent.com/2182637/53611918-54c1ff80-3c24-11e9-9917-66ac3cef513d.png" alt="react beautiful dnd logo" />
 </p>
